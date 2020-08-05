@@ -1,0 +1,15 @@
+{
+    "window.zoomLevel": 1,
+    "git.autofetch": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.renderSideBySide": false,
+    "workbench.iconTheme": "helium-icon-theme",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 3000,
+    "editor.fontSize": 13,
+    "sync.gist": "30b81660e8c4c1746f91199bda1248be",
+    "editor.wordWrap": "on",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Horizon"
+}

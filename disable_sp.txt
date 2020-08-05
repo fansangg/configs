@@ -1,0 +1,39 @@
+首先关闭 SIP
+
+ sudo mount -uw / 
+
+重启按 command r 然后打开终端 输入 csrutil disabl 然后 reboot
+
+重启后打开终端 来到这个目录下
+
+cd /System/Library/CoreServices/Spotlight.app/Contents/MacOS
+
+然后复制一个备份
+
+sudo cp Spotlight Spotlight.bak
+
+然后 划重点！
+
+sudo perl -pi -e 's|(\x00\x00\x00\x00\x00\x00\x47\x40\x00\x00\x00\x00\x00\x00)\x42\x40(\x00\x00\x80\x3f\x00\x00\x70\x42)|$1\x00\x00$2|sg' Spotlight
+
+这个命令把 spotlight 图标的宽度变为 0，使其在菜单栏隐藏掉
+
+接下来
+
+cmp -l Spotlight Spotlight.bak
+
+如果打印出下面这个则说明成功了
+
+318143 0 102
+
+318144 0 100
+
+然后
+
+sudo codesign -f -s - Spotlight
+
+最后重启 spotlight，图标就在菜单栏消失了。
+
+对了 重启 spotlight 的命令是
+
+sudo killall Spotlight
